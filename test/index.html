@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono">
+    <style media="screen">
+      body, html {
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway", sans-serif;
+        color: #111;
+      }
+
+      h1 {
+        display: inline-block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0;
+        margin: 0;
+        font-size: 42px;
+        color: #222;
+      }
+
+      .container {
+        position: relative;
+        width: 1000px;
+        margin: 0 auto;
+      }
+
+      .header {
+        width: 100%;
+        height: 100px;
+        background: #fafafa;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+      }
+      .header .inner-header {
+        height: 100%;
+      }
+
+      .item {
+        display: inline-block;
+        border-radius: 2px;
+        width: 320px;
+        background: #fafafa;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+        user-select: none;
+      }
+      .item:nth-child(n+2) {
+        margin-left: 19.999px;
+      }
+      .item .inner-item {
+        padding: 17px 25px;
+      }
+      .item .inner-item > img {
+        width: 250px;
+      }
+
+      body {
+        background: #cdcdcd;
+      }
+
+      .shop-button {
+        font-family: "Yanone Kaffeesatz", sans-serif;
+        vertical-align: middle;
+        cursor: pointer;
+        display: inline-block;
+        background: #ccc;
+        padding: 4px 14px;
+        border-radius: 5px;
+        border: 1px solid #bbb;
+        font-size: 20px;
+        line-height: 30px;
+        position: absolute;
+        right: 0;
+      }
+      .shop-button:hover {
+        background: #bbb;
+      }
+      .shop-button:hover .fa {
+        color: #555;
+      }
+      .shop-button .fa {
+        font-size: 30px;
+        color: #777;
+        transform: translateY(-1px);
+        vertical-align: middle;
+        margin-left: 2px;
+      }
+
+      .under-text {
+        line-height: 40px;
+        position: relative;
+      }
+
+      .name {
+        font-size: 20px;
+        vertical-align: middle;
+        display: inline-block;
+      }
+
+      .cart {
+        display: inline-block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        float: right;
+        font-size: 50px;
+        color: #555;
+      }
+      .cart .cart-quantity {
+        display: inline-block;
+        width: 50px;
+        font-family: "Droid Sans Mono", monospace;
+        font-size: 28px;
+        margin-left: 10px;
+      }
+
+      .added-to-cart {
+        animation: added-to-cart-animation 0.4s 1;
+      }
+
+      @keyframes added-to-cart-animation {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+
+    <script type="text/javascript" src="../dist/cloneInto.js"></script>
+    <script type="text/javascript">
+      window.addEventListener('load', () => {
+        let cart = document.querySelector('.cart .fa');
+
+        document.querySelectorAll('.item').forEach(item => {
+        let shopButton = item.querySelector('.shop-button');
+        shopButton.addEventListener('click', () => {
+          cloneInto(item, cart, {time: 500})
+          setTimeout(increaseCart, 400);
+        });
+        });
+
+        let cartQuantity = 0;
+        function increaseCart(){
+          let cartIcon = document.querySelector('.cart .fa');
+          cartIcon.classList.add('added-to-cart');
+
+          setTimeout(() => {
+            document.querySelector('.cart-quantity').innerText = ++cartQuantity;
+          }, 100);
+
+          setTimeout(() => {
+            cartIcon.classList.remove('added-to-cart');
+          }, 400);
+        }
+      });
+
+
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container inner-header">
+        <h1>Test Store</h1>
+        <div class="cart">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="cart-quantity"> </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container items">
+      <div class="item">
+        <div class="inner-item">
+          <img src="https://s3-eu-west-1.amazonaws.com/lindell-share/ShareX/2017/03/2017-03-23_21-55-18.png">
+          <div class="under-text">
+            <div class="name">Jeans Shirt</div>
+            <div class="shop-button">
+              Buy <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div><!--
+      --><div class="item">
+        <div class="inner-item">
+          <img src="https://s3-eu-west-1.amazonaws.com/lindell-share/ShareX/2017/03/2017-03-26_12-51-49.png">
+          <div class="under-text">
+            <div class="name">Short Dress</div>
+            <div class="shop-button">
+                Buy <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div><!--
+      --><div class="item">
+        <div class="inner-item">
+          <img src="https://s3-eu-west-1.amazonaws.com/lindell-share/ShareX/2017/03/2017-03-26_12-59-20.png">
+          <div class="under-text">
+            <div class="name">Sleeveless Blouse</div>
+            <div class="shop-button">
+              Buy <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
