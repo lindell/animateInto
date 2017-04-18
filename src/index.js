@@ -51,5 +51,5 @@ if (module.exports) {
   module.exports = animateInto;
 }
 else {
-  window.cloneInto = animateInto;
+  window.animateInto = animateInto;
 }
