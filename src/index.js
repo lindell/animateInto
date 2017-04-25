@@ -50,6 +50,6 @@ function animateInto(fromBox, toBox, options){
 if (module.exports) {
   module.exports = animateInto;
 }
-else {
+if (window) {
   window.animateInto = animateInto;
 }

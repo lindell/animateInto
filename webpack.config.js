@@ -5,7 +5,7 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'cloneInto.js'
+    filename: 'animateInto.js'
   },
   module: {
     rules: [
